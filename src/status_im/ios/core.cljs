@@ -43,7 +43,7 @@
        :reagent-render views/main})))
 
 (defn init []
-  (utils/register-exception-handler)
+  #_(utils/register-exception-handler)
   (status/call-module status/init-jail)
   (.registerComponent react/app-registry "StatusIm" #(reagent/reactify-component app-root))
   (dispatch-sync [:initialize-app]))
