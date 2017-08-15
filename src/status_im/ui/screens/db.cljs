@@ -17,7 +17,7 @@
 (def app-db {:current-public-key         ""
              :status-module-initialized? (or platform/ios? js/goog.DEBUG)
              :keyboard-height            0
-             :accounts                   {}
+             :accounts/accounts          {}
              :navigation-stack           '()
              :contacts/contacts          {}
              :qr-codes                   {}
@@ -97,7 +97,13 @@
                   :group/contact-group-id
                   :group/group-type
                   :group/selected-contacts
-                  :group/groups-order]
+                  :group/groups-order
+                  :accounts/accounts
+                  :accounts/account-creation?
+                  :accounts/creating-account?
+                  :accounts/current-account-id
+                  :accounts/recover
+                  :accounts/login]
                  :opt-un
                  [::current-public-key
                   ::modal
@@ -116,12 +122,6 @@
                   ::sync-state
                   ::sync-data
                   ::network
-                  :accounts/accounts
-                  :accounts/account-creation?
-                  :accounts/creating-account?
-                  :accounts/current-account-id
-                  :accounts/recover
-                  :accounts/login
                   :navigation/view-id
                   :navigation/navigation-stack
                   :navigation/prev-tab-view-id

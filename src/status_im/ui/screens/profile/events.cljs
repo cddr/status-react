@@ -43,8 +43,8 @@
      (js/setTimeout #(re-frame/dispatch [:select-chat-input-command {:name "send"}]) 500))))
 
 (defn prepare-edit-profile
-  [{:keys [current-account-id] :as db} _]
-  (let [current-account (select-keys (get-in db [:accounts current-account-id])
+  [{:accounts/keys [current-account-id] :as db} _]
+  (let [current-account (select-keys (get-in db [:accounts/accounts current-account-id])
                                      [:name :photo-path :status])]
     (update-in db [:profile-edit] merge current-account)))
 
